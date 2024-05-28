@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+
+<script type = "text/javascript">  
+Jogador = "O";
+Jogadas = 0;
+
+function Jogar(Local) {
+   Jogadas++;
+   Local = "#btn" + Local;	  
+   document.querySelector(Local).value = Jogador;
+   document.querySelector(Local).disabled = true;
+   if (Jogador == "O") {
+	Jogador = "X";
+   }
+   else {
+        Jogador = "O";
+   }	
+   setTimeout(function(){
+        Verificar()},100);  
+}
+
+function Verificar(){
+btn1 = document.querySelector("#btn1").value;
+btn2 = document.querySelector("#btn2").value;
+btn3 = document.querySelector("#btn3").value;
+btn4 = document.querySelector("#btn4").value;
+btn5 = document.querySelector("#btn5").value;
+btn6 = document.querySelector("#btn6").value;
+btn7 = document.querySelector("#btn7").value;
+btn8 = document.querySelector("#btn8").value;
+btn9 = document.querySelector("#btn9").value;
+if (Jogadas > 4) {
+	if (btn1 == btn2 && btn2 == btn3 && btn1 != " ") {
+   		alert("Jogador '" + btn1 + "' Venceu!");
+		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn4 == btn5 && btn5 == btn6 && btn4 != " ") {
+   		alert("Jogador '" + btn4 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn7 == btn8 && btn8 == btn9 && btn7 != " ") {
+   		alert("Jogador '" + btn7 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn1 == btn4 && btn4 == btn7 && btn1 != " ") {
+   		alert("Jogador '" + btn1 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn2 == btn5 && btn5 == btn8 && btn2 != " ") {
+   		alert("Jogador '" + btn2 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn3 == btn6 && btn6 == btn9 && btn3 != " ") {
+   		alert("Jogador '" + btn3 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn1 == btn5 && btn5 == btn9 && btn1 != " ") {
+   		alert("Jogador '" + btn1 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+	else if (btn3 == btn5 && btn5 == btn7 && btn3 != " ") {
+   		alert("Jogador '" + btn3 + "' Venceu!");
+   		Jogadas = 0;
+		NovoJogo();
+	}
+}
+
+if (Jogadas == 9) {
+        alert("Não houve vencedor...");	
+	NovoJogo();
+}
+}
+
+function NovoJogo() {
+
+document.querySelector("#btn1").value = " ";
+document.querySelector("#btn2").value = " ";
+document.querySelector("#btn3").value = " ";
+document.querySelector("#btn4").value = " ";
+document.querySelector("#btn5").value = " ";
+document.querySelector("#btn6").value = " ";
+document.querySelector("#btn7").value = " ";
+document.querySelector("#btn8").value = " ";
+document.querySelector("#btn9").value = " ";
+
+document.querySelector("#btn1").disabled = false;
+document.querySelector("#btn2").disabled = false;
+document.querySelector("#btn3").disabled = false;
+document.querySelector("#btn4").disabled = false;
+document.querySelector("#btn5").disabled = false;
+document.querySelector("#btn6").disabled = false;
+document.querySelector("#btn7").disabled = false;
+document.querySelector("#btn8").disabled = false;
+document.querySelector("#btn9").disabled = false;
+
+Jogador = "O";
+
+}
+  
+</script>    
+
+<style>
+html, body {height:100%;}
+html {display:table; width:100%;}
+body {display:table-cell; text-align:center; vertical-align:middle; font-family:verdana;}
+
+input {
+   height: 100px;
+   width: 100px;
+   font-size:48px;
+}   
+
+</style>
+
+<title>Jogo do Galo</title>
+</head>
+<body>
+
+<img src="JogoDoGalo.jpg" height=100 width=100 />
+<h1>Jogo do Galo</h1>
+<br><br>
+
+<input type="button" name="btn1" id="btn1" value=" " onclick="Jogar(1)"/>&nbsp&nbsp&nbsp
+<input type="button" name="btn2" id="btn2" value=" " onclick="Jogar(2)" />&nbsp&nbsp&nbsp
+<input type="button" name="btn3" id="btn3" value=" " onclick="Jogar(3)" />
+<br><br>
+<input type="button" name="btn4" id="btn4" value=" " onclick="Jogar(4)" />&nbsp&nbsp&nbsp
+<input type="button" name="btn5" id="btn5" value=" " onclick="Jogar(5)" />&nbsp&nbsp&nbsp
+<input type="button" name="btn6" id="btn6" value=" " onclick="Jogar(6)" />
+<br><br>
+<input type="button" name="btn7" id="btn7" value=" " onclick="Jogar(7)" />&nbsp&nbsp&nbsp
+<input type="button" name="btn8" id="btn8" value=" " onclick="Jogar(8)" />&nbsp&nbsp&nbsp
+<input type="button" name="btn9" id="btn9" value=" " onclick="Jogar(9)" />
+
+</body>
+</html>
